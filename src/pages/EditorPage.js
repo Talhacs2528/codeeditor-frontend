@@ -4,6 +4,7 @@ import Client from "../components/Client.js";
 import Editor from "../components/Editor.js";
 import ACTIONS from "../ACTIONS.js";
 import { useRef } from "react";
+import base_url from "../constant.js";
 import { initSocket } from "../socket.js";
 import { Navigate, useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -98,7 +99,7 @@ const EditorPage = () => {
       return;
     }
 
-    Axios.post(`http://localhost:5000/compile`, {
+    Axios.post(`${base_url}/compile`, {
       code: Code,
       language: "cpp",
       input: userInput,
